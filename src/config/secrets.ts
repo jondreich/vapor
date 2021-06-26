@@ -6,6 +6,7 @@ export const DISCORD_TOKEN = process.env["TOKEN"];
 export const STEAM_KEY = process.env["STEAM_KEY"];
 export const JOB_CHANNEL = process.env["JOB_CHANNEL_ID"];
 export const JOB_FREQUENCY = process.env["JOB_FREQUENCY"] || "0 12 * * *";
+export const SQLITE_DIR = process.env["SQLITE_DIR"] || "./"
 
 if (!DISCORD_TOKEN) {
   console.error("No discord token provided");
