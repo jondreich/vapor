@@ -1,17 +1,19 @@
 import { EmbedField, Message, MessageEmbed, User } from "discord.js";
 
 export function FormatWishlistAddMessage(gameDetails: any, requestor: User) {
+  console.log(gameDetails)
   let message = new MessageEmbed()
     .setColor(7419530)
     .setFooter(
       `Requested by ${requestor.username}`,
       requestor.displayAvatarURL()
     )
-    .setTitle(`Current Price: ${gameDetails.name} added to wishlist!`)
+    .setTitle(`${gameDetails.name} added to wishlist!`)
     .setDescription(
-      `\`${gameDetails.price_overview.final_formatted}\`\n` +
+      `\`Current Price: ${gameDetails.price_overview.final_formatted}\`\n` +
         gameDetails.short_description
     )
+    .setURL("https://store.steampowered.com/app/" + gameDetails.steam_appid)
     .setImage(gameDetails.header_image || "")
     .setTimestamp();
 
@@ -24,7 +26,7 @@ export function FormatOnSaleMessage(rows: any[]) {
   rows.forEach((row) => {
     fields.push({
       name: row[0],
-      value: `${row[2]} (${row[1]}% off)`,
+      value: `${row[2]} (${row[1]}% off)\n` + `https://store.steampowered.com/app/${row[3]}`,
       inline: false,
     });
   });
@@ -44,7 +46,7 @@ export function FormatWishlistShowMessage(rows: any[]) {
   rows.forEach((row) => {
     fields.push({
       name: row.name,
-      value: `Steam Id: ${row.id}`,
+      value: `https://store.steampowered.com/app/${row[3]}\n` + `Steam Id: ${row.id}`,
       inline: false,
     });
   });

@@ -23,6 +23,7 @@ export async function CheckForNewSales(games: any[]) {
           game.name,
           gameDetails.price_overview.discount_percent,
           gameDetails.price_overview.final_formatted,
+          game.id
         ]);
       } else if (
         gameDetails.price_overview.discount_percent != game.lastSaleAmount
@@ -47,6 +48,7 @@ export async function CheckForAllSales(games: any[]) {
           game.name,
           gameDetails.price_overview.discount_percent,
           gameDetails.price_overview.final_formatted,
+          game.id
         ]);
       }
     })
