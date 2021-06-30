@@ -46,7 +46,7 @@ export function FormatWishlistShowMessage(rows: any[]) {
   rows.forEach((row) => {
     fields.push({
       name: row.name,
-      value: `https://store.steampowered.com/app/${row[3]}\n` + `Steam Id: ${row.id}`,
+      value: `https://store.steampowered.com/app/${row.id}\n` + `Steam Id: ${row.id}`,
       inline: false,
     });
   });

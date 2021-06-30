@@ -9,6 +9,8 @@ export function ScheduleSalesJob(channel: Channel) {
   schedule(JOB_FREQUENCY, async () => {
     let wishlist = await GetWishlist();
     let onSale = await CheckForNewSales(wishlist);
-    (channel as TextChannel).send(FormatOnSaleMessage(onSale));
+    if(onSale.length > 0){
+      (channel as TextChannel).send(FormatOnSaleMessage(onSale));
+    }
   });
 }
