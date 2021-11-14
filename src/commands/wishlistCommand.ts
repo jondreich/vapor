@@ -78,7 +78,7 @@ export class WishlistCommand implements Command {
               )
             );
           }
-        } catch (error) {
+        } catch (error: any) {
           await message.channel.send(
             FormatErrorMessage("Game could not be added to wishlist", error)
           );
@@ -97,7 +97,7 @@ export class WishlistCommand implements Command {
               FormatMessage(0, `Removed ${game.name} from wishlist`)
             );
           }
-        } catch (error) {
+        } catch (error: any) {
           await message.channel.send(
             FormatErrorMessage("Game could not be removed from wishlist", error)
           );

@@ -15,7 +15,6 @@ export async function CheckForNewSales(games: any[]) {
     games.map(async (game) => {
       let gameDetails = await steam.getGameDetails(game.id);
       if (gameDetails.price_overview === undefined) {
-        // go fuck urself
       }
       else if (gameDetails.price_overview.discount_percent > game.lastSaleAmount) {
         UpdateLastSaleAmount(
@@ -47,7 +46,6 @@ export async function CheckForAllSales(games: any[]) {
     games.map(async (game) => {
       let gameDetails = await steam.getGameDetails(game.id);
       if (gameDetails.price_overview === undefined) {
-        // go fuck urself
       }
       else if (gameDetails.price_overview.discount_percent > 0) {
         onSale.push([
